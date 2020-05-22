@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Navigation } from '../interfaces'
 
-export const Landing = ({ navigation }) => {
+export const Landing = ({ navigation }: { navigation: Navigation }) => {
 
   const handlePress = () => {
     console.log('button pressed');
-    
   }
 
   const handlePost = () => {
