@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, ScrollView, Button } from "react-native";
 import { Navigation } from "../interfaces";
 import { Input, CheckBox } from "react-native-elements";
 
 export const PostForm = () => {
   return (
-    <View>
+    <ScrollView>
       <Input placeholder="Campsite Title" label="Title:" />
       <Input placeholder="Closest city/town" label="City:" />
       <Input placeholder="State" label="State:" />
@@ -20,23 +20,18 @@ export const PostForm = () => {
         label="Description:"
       />
       <Input placeholder="Image URL" label="Image:" />
-      <Text>Available Amenities</Text>
-      <CheckBox title="Click Here" />
-    </View>
+      <Text>Available Amenities Nearby:</Text>
+      <CheckBox title="Firepit" />
+      <CheckBox title="Boating/Water" />
+      <CheckBox title="Fishing" />
+      <CheckBox title="Mountain Biking Trails" />
+      <CheckBox title="ATV Trails" />
+      <CheckBox title="Horse Trails" />
+      <CheckBox title="Hiking Trails" />
+    </ScrollView>
   );
 };
 
-// City.String
-// State.String
-// Name.string
-// Long.Float
-// Lat.Float
-// Description.string
-// Driving Tips.string
-// Image.string(url for now. upload an image as a stretch goal)
-// Timestamps
-// has_many comments
-// has_many amenities
 
 // const styles = StyleSheet.create({
 //   container: {
