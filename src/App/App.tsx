@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Landing } from "../Landing/Landing";
+import { PostForm } from "../PostForm/PostForm";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -12,8 +13,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Landing">
           <Stack.Screen name="Landing" component={Landing} />
-          {/* <Stack.Screen name="Map" component={MapView} />
-          <Stack.Screen name="Post" component={PostForm} /> */}
+          <Stack.Screen name="Post" component={PostForm} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
