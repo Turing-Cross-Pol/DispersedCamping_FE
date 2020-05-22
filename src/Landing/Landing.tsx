@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export const Landing = () => {
+export const Landing = ({ navigation }) => {
 
   const handlePress = () => {
     console.log('button pressed');
@@ -10,7 +12,7 @@ export const Landing = () => {
 
   const handlePost = () => {
     console.log('handling post');
-    
+    navigation.navigate('Post')
   }
 
   return (
