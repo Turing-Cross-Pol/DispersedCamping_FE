@@ -6,8 +6,18 @@ import { Input, CheckBox } from "react-native-elements";
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
 
+  const amenityIds = {
+    905: "Firepit",
+    919: "Boating/Water",
+    935: "Fishing",
+    949: "Mountain Biking Trails",
+    965: "ATV trails",
+    979: "Horse Trails",
+    995: "Hiking Trails"
+  }
+
   const handleAmenities = e => {
-    const amenity: string = e.target.title;
+    const amenity: string = amenityIds[e.currentTarget];
     if (amenities.includes(amenity)) {
       const filteredAmenities = amenities.filter(am => am !== amenity);
       setAmenities(filteredAmenities);
@@ -33,13 +43,13 @@ export const PostForm = () => {
       />
       <Input placeholder="Image URL" label="Image:" />
       <Text>Available Amenities Nearby:</Text>
-      <CheckBox title="Firepit" onPress={handleAmenities} checked={amenities.includes("Firepit")}/>
-      <CheckBox title="Boating/Water" checked={amenities.includes("Boating/Water")}/>
-      <CheckBox title="Fishing" checked={amenities.includes("Fishing")}/>
-      <CheckBox title="Mountain Biking Trails" checked={amenities.includes("Mountain Biking Trails")}/>
-      <CheckBox title="ATV Trails" checked={amenities.includes("ATV Trails")}/>
-      <CheckBox title="Horse Trails" checked={amenities.includes("Horse Trails")}/>
-      <CheckBox title="Hiking Trails" checked={amenities.includes("Hiking Trails")}/>
+      <CheckBox title="Firepit" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[905])}/>
+      <CheckBox title="Boating/Water" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[919])}/>
+      <CheckBox title="Fishing" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[935])}/>
+      <CheckBox title="Mountain Biking Trails" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[949])}/>
+      <CheckBox title="ATV Trails" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[965])}/>
+      <CheckBox title="Horse Trails" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[979])}/>
+      <CheckBox title="Hiking Trails" onPress={(e) => handleAmenities(e)} checked={amenities.includes(amenityIds[995])}/>
     </ScrollView>
   );
 };
