@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Landing } from "../Landing/Landing";
-import { PostForm } from "../PostForm/PostForm";
+import { Landing } from "./src/Landing/Landing";
+import { PostForm } from "./src/PostForm/PostForm";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-export default function App() {
+module.exports = function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
