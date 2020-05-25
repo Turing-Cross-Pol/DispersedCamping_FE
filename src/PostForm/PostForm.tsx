@@ -62,12 +62,16 @@ export const PostForm = () => {
       <Input
         placeholder="A brief description of the site including details about the surroundings"
         label="Description:"
+        multiline={true}
+        numberOfLines={4}
         value={description}
         onChangeText={(value) => handleInputChange(value, setDescription)}
       />
       <Input
         placeholder="How far is it from major roads? Any tips for landmarks to look out for?"
         label="Directions:"
+        multiline={true}
+        numberOfLines={4}
         value={directionInfo}
         onChangeText={(value) => handleInputChange(value, setDirectionInfo)}
       />
