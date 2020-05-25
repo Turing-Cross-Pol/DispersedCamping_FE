@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, ScrollView, Button } from "react-native";
 import { Navigation } from "../interfaces";
 import { Input, CheckBox } from "react-native-elements";
 
 export const PostForm = () => {
+  const [amenities, setAmenities] = useState<string[]>([]);
+
+  const handleAmenities = e => {
+    const amenity: string = e.target.title;
+    if (amenities.includes(amenity)) {
+      const filteredAmenities = amenities.filter(am => am !== amenity);
+      setAmenities(filteredAmenities);
+    } else {
+      setAmenities([...amenities, amenity])
+    }
+  }
+
   return (
     <ScrollView>
       <Input placeholder="Campsite Title" label="Title:" />
@@ -21,13 +33,13 @@ export const PostForm = () => {
       />
       <Input placeholder="Image URL" label="Image:" />
       <Text>Available Amenities Nearby:</Text>
-      <CheckBox title="Firepit" />
-      <CheckBox title="Boating/Water" />
-      <CheckBox title="Fishing" />
-      <CheckBox title="Mountain Biking Trails" />
-      <CheckBox title="ATV Trails" />
-      <CheckBox title="Horse Trails" />
-      <CheckBox title="Hiking Trails" />
+      <CheckBox title="Firepit" onPress={handleAmenities} checked={amenities.includes("Firepit")}/>
+      <CheckBox title="Boating/Water" checked={amenities.includes("Boating/Water")}/>
+      <CheckBox title="Fishing" checked={amenities.includes("Fishing")}/>
+      <CheckBox title="Mountain Biking Trails" checked={amenities.includes("Mountain Biking Trails")}/>
+      <CheckBox title="ATV Trails" checked={amenities.includes("ATV Trails")}/>
+      <CheckBox title="Horse Trails" checked={amenities.includes("Horse Trails")}/>
+      <CheckBox title="Hiking Trails" checked={amenities.includes("Hiking Trails")}/>
     </ScrollView>
   );
 };
