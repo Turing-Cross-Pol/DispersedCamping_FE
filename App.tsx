@@ -7,7 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-module.exports = function App() {
+export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
