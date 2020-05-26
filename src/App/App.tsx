@@ -1,21 +1,31 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Landing } from '../Landing/Landing'
+import React from "react";
+import { StyleSheet } from "react-native";
+import { Landing } from "../Landing/Landing";
+import { PostForm } from "../PostForm/PostForm";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+export const App = () => {
   return (
-    <View style={styles.container}>
-      <Landing />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Landing">
+        <Stack.Screen name="Landing" component={Landing} />
+        <Stack.Screen name="Post" component={PostForm} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-  }
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
 });
+
+// <Stack.Screen name="Post" component={PostForm} />
