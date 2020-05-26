@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export const Landing = () => {
+export const Landing = ({ navigation }) => {
 
   const handlePress = () => {
     console.log('button pressed');
@@ -10,7 +10,7 @@ export const Landing = () => {
 
   const handlePost = () => {
     console.log('handling post');
-    
+    navigation.navigate("Post");  
   }
 
   return (
