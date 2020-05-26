@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, ScrollView, Button } from "react-native";
 import { Navigation } from "../interfaces";
-// import { Input, CheckBox } from "react-native-elements";
+import { Input, CheckBox } from 'react-native-elements';
 
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
@@ -30,42 +30,42 @@ export const PostForm = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>Tell us about your campsite</Text>
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Campsite Title"
         label="Title:"
         value={title}
         onChangeText={(value) => handleInputChange(value, setTitle)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Closest city/town"
         label="City:"
         value={city}
         onChangeText={(value) => handleInputChange(value, setCity)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="State"
         label="State:"
         value={state}
         onChangeText={(value) => handleInputChange(value, setState)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Latitude"
         label="Lat:"
         value={lat}
         onChangeText={(value) => handleInputChange(value, setLat)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Longitude"
         label="Long:"
         value={long}
         onChangeText={(value) => handleInputChange(value, setLong)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="A brief description of the site including details about the surroundings"
         label="Description:"
@@ -74,7 +74,7 @@ export const PostForm = () => {
         value={description}
         onChangeText={(value) => handleInputChange(value, setDescription)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="How far is it from major roads? Any tips for landmarks to look out for?"
         label="Directions:"
@@ -83,7 +83,7 @@ export const PostForm = () => {
         value={directionInfo}
         onChangeText={(value) => handleInputChange(value, setDirectionInfo)}
       />
-      <TextInput
+      <Input
         style={styles.input}
         placeholder="Image URL"
         label="Image:"
@@ -91,7 +91,7 @@ export const PostForm = () => {
         onChangeText={(value) => handleInputChange(value, setImgUrl)}
       />
       <Text style={styles.text}>Available Amenities Nearby:</Text>
-      {/* <CheckBox
+      <CheckBox
         title="Firepit"
         onPress={() => handleAmenities("Firepit")}
         checked={amenities.includes("Firepit")}
@@ -125,7 +125,7 @@ export const PostForm = () => {
         title="Hiking Trails"
         onPress={() => handleAmenities("Hiking Trails")}
         checked={amenities.includes("Hiking Trails")}
-      /> */}
+      />
       {/* <Button title="Submit Campsite" /> */}
     </ScrollView>
   );
