@@ -38,9 +38,7 @@ export const PostForm = () => {
     func(value);
   };
 
-  const handleSubmit = () => {
-
-  }
+  const handleSubmit = () => {};
 
   return (
     <ScrollView style={styles.container}>
@@ -106,81 +104,91 @@ export const PostForm = () => {
         onChangeText={(value) => handleInputChange(value, setImgUrl)}
       />
       <Text style={styles.text}>Available Amenities Nearby:</Text>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Firepit")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("Firepit") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>Firepit</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Boating/Water")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("Boating/Water") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>Boating/Water</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Fishing")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("Fishing") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>Fishing</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Mountain Biking Trails")}
-      >
-        <Image
-          style={styles.icon}
-          source={
-            amenities.includes("Mountain Biking Trails")
-              ? fullCheck
-              : emptyCheck
-          }
-        />
-        <Text style={styles.label}>Mountain Biking Trails</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("ATV Trails")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("ATV Trails") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>ATV Trails</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Horse Trails")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("Horse Trails") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>Horse Trails</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.checkContainer}
-        onPress={() => handleAmenities("Hiking Trails")}
-      >
-        <Image
-          style={styles.icon}
-          source={amenities.includes("Hiking Trails") ? fullCheck : emptyCheck}
-        />
-        <Text style={styles.label}>Hiking Trails</Text>
-      </TouchableOpacity>
-      <Button onPress={handleSubmit} title="Submit Campsite" style={styles.button}/>
+      <View style={styles.allCheckboxes}>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Firepit")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Firepit") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Firepit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Boating/Water")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Boating/Water") ? fullCheck : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Boating/Water</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Fishing")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Fishing") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Fishing</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Mountain Biking Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Mountain Biking Trails")
+                ? fullCheck
+                : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Mountain Biking Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("ATV Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("ATV Trails") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>ATV Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Horse Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Horse Trails") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Horse Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Hiking Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Hiking Trails") ? fullCheck : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Hiking Trails</Text>
+        </TouchableOpacity>
+      </View>
+      <Button
+        onPress={handleSubmit}
+        title="Submit Campsite"
+        color={"#7E62CF"}
+      />
     </ScrollView>
   );
 };
@@ -214,19 +222,14 @@ const styles = StyleSheet.create({
     width: 20,
     marginRight: 10,
   },
+  allCheckboxes: {
+    marginBottom: 10
+  },
   checkContainer: {
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
     marginLeft: 20,
-    marginTop: 10
+    marginTop: 10,
   },
 });
-
-// export const COLORS = {
-//   purple: '#7E62CF',
-//   green: '#537A72',
-//   peach: '#E5AD83',
-//   cream: '#E6CFAC',
-//   pink: '#F1778D'
-// }
