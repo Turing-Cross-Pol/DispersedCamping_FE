@@ -153,6 +153,15 @@ const styles = StyleSheet.create({
     margin: 10,
     color: "#7E62CF",
   },
+  input: {
+    fontSize: 20,
+    padding: 15,
+    borderBottomColor: '#537A72',
+    borderBottomWidth: 1,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 5,
+  }
 });
 
 // export const COLORS = {
