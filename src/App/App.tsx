@@ -10,7 +10,12 @@ const Stack = createStackNavigator();
 export const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Landing">
+      <Stack.Navigator 
+        initialRouteName="Landing"
+        screenOptions={{
+          headerShown: false
+        }}
+      >
         <Stack.Screen name="Landing" component={Landing} />
         <Stack.Screen name="Post" component={PostForm} />
       </Stack.Navigator>
