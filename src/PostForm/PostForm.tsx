@@ -1,7 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  Button,
+  Image,
+} from "react-native";
 import { Navigation } from "../interfaces";
-import { Input, CheckBox } from 'react-native-elements';
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+const emptyCheck = require("../assets/checkbox.png");
+const fullCheck = require("../assets/done.png");
 
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
@@ -27,106 +38,157 @@ export const PostForm = () => {
     func(value);
   };
 
+  const handleSubmit = () => {};
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>Tell us about your campsite</Text>
-      <Input
+      <Text style={styles.label}>Title:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Campsite Title"
-        label="Title:"
         value={title}
         onChangeText={(value) => handleInputChange(value, setTitle)}
       />
-      <Input
+      <Text style={styles.label}>City:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Closest city/town"
-        label="City:"
         value={city}
         onChangeText={(value) => handleInputChange(value, setCity)}
       />
-      <Input
+      <Text style={styles.label}>State:</Text>
+      <TextInput
         style={styles.input}
         placeholder="State"
-        label="State:"
         value={state}
         onChangeText={(value) => handleInputChange(value, setState)}
       />
-      <Input
+      <Text style={styles.label}>Lat:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Latitude"
-        label="Lat:"
         value={lat}
         onChangeText={(value) => handleInputChange(value, setLat)}
       />
-      <Input
+      <Text style={styles.label}>Long:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Longitude"
-        label="Long:"
         value={long}
         onChangeText={(value) => handleInputChange(value, setLong)}
       />
-      <Input
+      <Text style={styles.label}>Description:</Text>
+      <TextInput
         style={styles.input}
         placeholder="A brief description of the site including details about the surroundings"
-        label="Description:"
         multiline={true}
         numberOfLines={4}
         value={description}
         onChangeText={(value) => handleInputChange(value, setDescription)}
       />
-      <Input
+      <Text style={styles.label}>Directions:</Text>
+      <TextInput
         style={styles.input}
         placeholder="How far is it from major roads? Any tips for landmarks to look out for?"
-        label="Directions:"
         multiline={true}
         numberOfLines={4}
         value={directionInfo}
         onChangeText={(value) => handleInputChange(value, setDirectionInfo)}
       />
-      <Input
+      <Text style={styles.label}>Image:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Image URL"
-        label="Image:"
         value={imgUrl}
         onChangeText={(value) => handleInputChange(value, setImgUrl)}
       />
       <Text style={styles.text}>Available Amenities Nearby:</Text>
-      <CheckBox
-        title="Firepit"
-        onPress={() => handleAmenities("Firepit")}
-        checked={amenities.includes("Firepit")}
+      <View style={styles.allCheckboxes}>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Firepit")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Firepit") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Firepit</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Boating/Water")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Boating/Water") ? fullCheck : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Boating/Water</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Fishing")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Fishing") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Fishing</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Mountain Biking Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Mountain Biking Trails")
+                ? fullCheck
+                : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Mountain Biking Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("ATV Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("ATV Trails") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>ATV Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Horse Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={amenities.includes("Horse Trails") ? fullCheck : emptyCheck}
+          />
+          <Text style={styles.label}>Horse Trails</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.checkContainer}
+          onPress={() => handleAmenities("Hiking Trails")}
+        >
+          <Image
+            style={styles.icon}
+            source={
+              amenities.includes("Hiking Trails") ? fullCheck : emptyCheck
+            }
+          />
+          <Text style={styles.label}>Hiking Trails</Text>
+        </TouchableOpacity>
+      </View>
+      <Button
+        onPress={handleSubmit}
+        title="Submit Campsite"
+        color={"#7E62CF"}
       />
-      <CheckBox
-        title="Boating/Water"
-        onPress={() => handleAmenities("Boating/Water")}
-        checked={amenities.includes("Boating/Water")}
-      />
-      <CheckBox
-        title="Fishing"
-        onPress={() => handleAmenities("Fishing")}
-        checked={amenities.includes("Fishing")}
-      />
-      <CheckBox
-        title="Mountain Biking Trails"
-        onPress={() => handleAmenities("Mountain Biking Trails")}
-        checked={amenities.includes("Mountain Biking Trails")}
-      />
-      <CheckBox
-        title="ATV Trails"
-        onPress={() => handleAmenities("ATV Trails")}
-        checked={amenities.includes("ATV Trails")}
-      />
-      <CheckBox
-        title="Horse Trails"
-        onPress={() => handleAmenities("Horse Trails")}
-        checked={amenities.includes("Horse Trails")}
-      />
-      <CheckBox
-        title="Hiking Trails"
-        onPress={() => handleAmenities("Hiking Trails")}
-        checked={amenities.includes("Hiking Trails")}
-      />
-      {/* <Button title="Submit Campsite" /> */}
     </ScrollView>
   );
 };
@@ -134,13 +196,41 @@ export const PostForm = () => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 50,
+    marginTop: 75
+  },
+  label: {
+    fontSize: 20,
+    marginLeft: 20,
+    color: "#537A72",
   },
   text: {
     fontSize: 25,
     textAlign: "center",
     margin: 10,
+    color: "#7E62CF",
   },
   input: {
-    fontSize: 10
-  }
+    fontSize: 20,
+    padding: 15,
+    borderBottomColor: "#537A72",
+    borderBottomWidth: 1,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 5,
+  },
+  icon: {
+    height: 20,
+    width: 20,
+    marginRight: 10,
+  },
+  allCheckboxes: {
+    marginBottom: 10
+  },
+  checkContainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+    marginLeft: 20,
+    marginTop: 10,
+  },
 });
