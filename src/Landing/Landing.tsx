@@ -1,4 +1,5 @@
 import React from 'react';
+import { COLORS } from '../constants.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export const Landing = ({ navigation }) => {
@@ -15,7 +16,7 @@ export const Landing = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>DispersedCamping</Text>
+      <Text style={styles.text}>WilderNests</Text>
       <View style={styles.button}>
         <Button 
           title="Find a Campsite"
@@ -24,12 +25,15 @@ export const Landing = ({ navigation }) => {
           color='#fff'
         />
       </View>
-      <Button
-        title="Post a Campsite"
-        onPress={() => handlePost()}
-        accessibilityLabel="Post a Campsite"
-        disabled={false}
-      />
+      <View style={styles.button}>
+        <Button
+          title="Post a Campsite"
+          onPress={() => handlePost()}
+          accessibilityLabel="Post a Campsite"
+          disabled={false}
+          color='#fff'
+        />
+      </View>
     </View>
   )
 }
@@ -38,13 +42,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'purple',
     flex: 1,
+    padding: 20,
   },
   text: {
     fontSize: 30,
     marginBottom: 20,
+    textAlign: 'center',
   },
   button: {
-    backgroundColor: 'brown',
+    backgroundColor: COLORS.purple,
     color: '#fff',
+    marginBottom: 20,
   }
 });
