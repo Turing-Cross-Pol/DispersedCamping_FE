@@ -1,7 +1,18 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, ScrollView, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  Button,
+  Image,
+} from "react-native";
 import { Navigation } from "../interfaces";
-import { Input, CheckBox } from "react-native-elements";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+const emptyCheck = require("../assets/checkbox.png");
+const fullCheck = require("../assets/done.png");
 
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
@@ -26,6 +37,10 @@ export const PostForm = () => {
   const handleInputChange = (value, func) => {
     func(value);
   };
+
+  const handleSubmit = () => {
+
+  }
 
   return (
     <ScrollView style={styles.container}>
@@ -91,49 +106,81 @@ export const PostForm = () => {
         onChangeText={(value) => handleInputChange(value, setImgUrl)}
       />
       <Text style={styles.text}>Available Amenities Nearby:</Text>
-      <CheckBox
-        title="Firepit"
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Firepit")}
-        checked={amenities.includes("Firepit")}
-        checkedColor={"#537A72"} // COLORS.purple
-      />
-      <CheckBox
-        title="Boating/Water"
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("Firepit") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>Firepit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Boating/Water")}
-        checked={amenities.includes("Boating/Water")}
-        checkedColor={"#537A72"}
-      />
-      <CheckBox
-        title="Fishing"
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("Boating/Water") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>Boating/Water</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Fishing")}
-        checked={amenities.includes("Fishing")}
-        checkedColor={"#537A72"}
-      />
-      <CheckBox
-        title="Mountain Biking Trails"
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("Fishing") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>Fishing</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Mountain Biking Trails")}
-        checked={amenities.includes("Mountain Biking Trails")}
-        checkedColor={"#537A72"}
-      />
-      <CheckBox
-        title="ATV Trails"
+      >
+        <Image
+          style={styles.icon}
+          source={
+            amenities.includes("Mountain Biking Trails")
+              ? fullCheck
+              : emptyCheck
+          }
+        />
+        <Text style={styles.label}>Mountain Biking Trails</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("ATV Trails")}
-        checked={amenities.includes("ATV Trails")}
-        checkedColor={"#537A72"}
-      />
-      <CheckBox
-        title="Horse Trails"
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("ATV Trails") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>ATV Trails</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Horse Trails")}
-        checked={amenities.includes("Horse Trails")}
-        checkedColor={"#537A72"}
-      />
-      <CheckBox
-        title="Hiking Trails"
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("Horse Trails") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>Horse Trails</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.checkContainer}
         onPress={() => handleAmenities("Hiking Trails")}
-        checked={amenities.includes("Hiking Trails")}
-        checkedColor={"#537A72"}
-      />
-      <Button title="Submit Campsite" />
+      >
+        <Image
+          style={styles.icon}
+          source={amenities.includes("Hiking Trails") ? fullCheck : emptyCheck}
+        />
+        <Text style={styles.label}>Hiking Trails</Text>
+      </TouchableOpacity>
+      <Button onPress={handleSubmit} title="Submit Campsite" style={styles.button}/>
     </ScrollView>
   );
 };
@@ -145,7 +192,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 20,
     marginLeft: 20,
-    color: '#537A72'
+    color: "#537A72",
   },
   text: {
     fontSize: 25,
@@ -156,12 +203,24 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     padding: 15,
-    borderBottomColor: '#537A72',
+    borderBottomColor: "#537A72",
     borderBottomWidth: 1,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 5,
-  }
+  },
+  icon: {
+    height: 20,
+    width: 20,
+    marginRight: 10,
+  },
+  checkContainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "row",
+    marginLeft: 20,
+    marginTop: 10
+  },
 });
 
 // export const COLORS = {
