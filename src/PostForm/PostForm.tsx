@@ -196,6 +196,7 @@ export const PostForm = () => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 50,
+    marginTop: 75
   },
   label: {
     fontSize: 20,
