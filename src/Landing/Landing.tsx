@@ -65,7 +65,6 @@ export const Landing = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'purple',
     flex: 1,
   },
   backgroundImage: {
@@ -78,10 +77,6 @@ const styles = StyleSheet.create({
     flex: 5,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonBlock: {
-    fontSize: 20,
-    flex: 2,
   },
   icon: {
     width: 127,
@@ -101,10 +96,15 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontFamily: 'MavenPro-Medium'
   },
+  buttonBlock: {
+    fontSize: 20,
+    flex: 2,
+  },
   button: {
     backgroundColor: COLORS.purple,
     color: '#fff',
     marginBottom: 20,
     borderRadius: 4,
+    fontFamily: 'MavenPro-Medium'
   }
 });
