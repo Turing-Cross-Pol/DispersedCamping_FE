@@ -98,5 +98,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.purple,
     color: '#fff',
     marginBottom: 20,
+    borderRadius: 4,
   }
 });
