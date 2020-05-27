@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, ScrollView, Button } from "react-native";
 import { Navigation } from "../interfaces";
-import { Input, CheckBox } from 'react-native-elements';
+import { Input, CheckBox } from "react-native-elements";
 
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
@@ -30,63 +30,63 @@ export const PostForm = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.text}>Tell us about your campsite</Text>
-      <Input
+      <Text style={styles.label}>Title:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Campsite Title"
-        label="Title:"
         value={title}
         onChangeText={(value) => handleInputChange(value, setTitle)}
       />
-      <Input
+      <Text style={styles.label}>City:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Closest city/town"
-        label="City:"
         value={city}
         onChangeText={(value) => handleInputChange(value, setCity)}
       />
-      <Input
+      <Text style={styles.label}>State:</Text>
+      <TextInput
         style={styles.input}
         placeholder="State"
-        label="State:"
         value={state}
         onChangeText={(value) => handleInputChange(value, setState)}
       />
-      <Input
+      <Text style={styles.label}>Lat:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Latitude"
-        label="Lat:"
         value={lat}
         onChangeText={(value) => handleInputChange(value, setLat)}
       />
-      <Input
+      <Text style={styles.label}>Long:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Longitude"
-        label="Long:"
         value={long}
         onChangeText={(value) => handleInputChange(value, setLong)}
       />
-      <Input
+      <Text style={styles.label}>Description:</Text>
+      <TextInput
         style={styles.input}
         placeholder="A brief description of the site including details about the surroundings"
-        label="Description:"
         multiline={true}
         numberOfLines={4}
         value={description}
         onChangeText={(value) => handleInputChange(value, setDescription)}
       />
-      <Input
+      <Text style={styles.label}>Directions:</Text>
+      <TextInput
         style={styles.input}
         placeholder="How far is it from major roads? Any tips for landmarks to look out for?"
-        label="Directions:"
         multiline={true}
         numberOfLines={4}
         value={directionInfo}
         onChangeText={(value) => handleInputChange(value, setDirectionInfo)}
       />
-      <Input
+      <Text style={styles.label}>Image:</Text>
+      <TextInput
         style={styles.input}
         placeholder="Image URL"
-        label="Image:"
         value={imgUrl}
         onChangeText={(value) => handleInputChange(value, setImgUrl)}
       />
@@ -95,38 +95,45 @@ export const PostForm = () => {
         title="Firepit"
         onPress={() => handleAmenities("Firepit")}
         checked={amenities.includes("Firepit")}
+        checkedColor={"#537A72"} // COLORS.purple
       />
       <CheckBox
         title="Boating/Water"
         onPress={() => handleAmenities("Boating/Water")}
         checked={amenities.includes("Boating/Water")}
+        checkedColor={"#537A72"}
       />
       <CheckBox
         title="Fishing"
         onPress={() => handleAmenities("Fishing")}
         checked={amenities.includes("Fishing")}
+        checkedColor={"#537A72"}
       />
       <CheckBox
         title="Mountain Biking Trails"
         onPress={() => handleAmenities("Mountain Biking Trails")}
         checked={amenities.includes("Mountain Biking Trails")}
+        checkedColor={"#537A72"}
       />
       <CheckBox
         title="ATV Trails"
         onPress={() => handleAmenities("ATV Trails")}
         checked={amenities.includes("ATV Trails")}
+        checkedColor={"#537A72"}
       />
       <CheckBox
         title="Horse Trails"
         onPress={() => handleAmenities("Horse Trails")}
         checked={amenities.includes("Horse Trails")}
+        checkedColor={"#537A72"}
       />
       <CheckBox
         title="Hiking Trails"
         onPress={() => handleAmenities("Hiking Trails")}
         checked={amenities.includes("Hiking Trails")}
+        checkedColor={"#537A72"}
       />
-      {/* <Button title="Submit Campsite" /> */}
+      <Button title="Submit Campsite" />
     </ScrollView>
   );
 };
@@ -135,12 +142,23 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 50,
   },
+  label: {
+    fontSize: 20,
+    marginLeft: 20,
+    color: '#537A72'
+  },
   text: {
     fontSize: 25,
     textAlign: "center",
     margin: 10,
+    color: "#7E62CF",
   },
-  input: {
-    fontSize: 10
-  }
 });
+
+// export const COLORS = {
+//   purple: '#7E62CF',
+//   green: '#537A72',
+//   peach: '#E5AD83',
+//   cream: '#E6CFAC',
+//   pink: '#F1778D'
+// }
