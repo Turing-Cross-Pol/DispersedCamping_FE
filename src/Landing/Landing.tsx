@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { COLORS } from '../constants'
+import { Navigation } from '../interfaces';
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
@@ -9,7 +10,7 @@ const getFonts = () => Font.loadAsync({
   'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf'),
 });
 
-export const Landing = ({ navigation }) => {
+export const Landing = ({ navigation }: {navigation: Navigation }) => {
 
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
