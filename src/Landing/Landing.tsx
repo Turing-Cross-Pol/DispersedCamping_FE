@@ -8,6 +8,7 @@ export const Landing = ({ navigation }) => {
 
   let [fontsLoaded] = useFonts({
     'PatuaOne': require('../../assets/fonts/PatuaOne-Regular.ttf'),
+    'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf'),
   });
 
   const handlePress = () => {
@@ -34,7 +35,8 @@ export const Landing = ({ navigation }) => {
               style={styles.icon}
               source={require('../../assets/images/tent-icon.png')}
             />
-            <Text style={styles.text}>WilderNests</Text>
+            <Text style={styles.typeBlock}>WilderNests</Text>
+            <Text style={styles.tagline}>A guide to dispersed camping</Text>
           </View>
           <View style={styles.buttonBlock}>
             <View style={styles.button}>
@@ -87,12 +89,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 100,
   },
-  text: {
-    fontSize: 30,
-    marginBottom: 20,
+  typeBlock: {
+    fontSize: 50,
+    marginBottom: 5,
     textAlign: 'center',
     fontFamily: 'PatuaOne',
     color: '#fff',
+  },
+  tagline: {
+    fontSize: 18,
+    color: '#fff',
+    fontFamily: 'MavenPro-Medium'
   },
   button: {
     backgroundColor: COLORS.purple,
