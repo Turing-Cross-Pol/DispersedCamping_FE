@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { COLORS } from '../constants.js'
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
-import { useFonts } from '@use-expo/font';
+import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+
+const getFonts = () => Font.loadAsync({
+  'PatuaOne': require('../../assets/fonts/PatuaOne-Regular.ttf'),
+  'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf'),
+});
 
 export const Landing = ({ navigation }) => {
 
-  let [fontsLoaded] = useFonts({
-    'PatuaOne': require('../../assets/fonts/PatuaOne-Regular.ttf'),
-    'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf'),
-  });
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
   const handlePress = () => {
     console.log('button pressed');
@@ -22,7 +24,12 @@ export const Landing = ({ navigation }) => {
   }
 
   if (!fontsLoaded) {
-    return <AppLoading />
+    return (
+      <AppLoading 
+        startAsync={getFonts}
+        onFinish={() => setFontsLoaded(true)}
+      />
+    )
   } else {
     return (
       <View style={styles.container}>
