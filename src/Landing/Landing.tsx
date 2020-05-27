@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { COLORS } from '../constants.js'
+import { COLORS } from '../constants'
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
