@@ -1,8 +1,14 @@
 import React from 'react';
 import { COLORS } from '../constants.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
 
 export const Landing = ({ navigation }) => {
+
+  let [fontsLoaded] = useFonts({
+    'PatuaOne': require('../../assets/fonts/PatuaOne-Regular.ttf'),
+  });
 
   const handlePress = () => {
     console.log('button pressed');
@@ -14,28 +20,32 @@ export const Landing = ({ navigation }) => {
     navigation.navigate("Post");  
   }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>WilderNests</Text>
-      <View style={styles.button}>
-        <Button 
-          title="Find a Campsite"
-          onPress={() => handlePress()}
-          accessibilityLabel="Find a Campsite"
-          color='#fff'
-        />
+  if (!fontsLoaded) {
+    return <AppLoading />
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>WilderNests</Text>
+        <View style={styles.button}>
+          <Button 
+            title="Find a Campsite"
+            onPress={() => handlePress()}
+            accessibilityLabel="Find a Campsite"
+            color='#fff'
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Post a Campsite"
+            onPress={() => handlePost()}
+            accessibilityLabel="Post a Campsite"
+            disabled={false}
+            color='#fff'
+          />
+        </View>
       </View>
-      <View style={styles.button}>
-        <Button
-          title="Post a Campsite"
-          onPress={() => handlePost()}
-          accessibilityLabel="Post a Campsite"
-          disabled={false}
-          color='#fff'
-        />
-      </View>
-    </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -48,6 +58,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'PatuaOne',
+    color: '#fff',
   },
   button: {
     backgroundColor: COLORS.purple,
