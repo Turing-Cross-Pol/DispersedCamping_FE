@@ -11,8 +11,8 @@ import {
 import { Navigation } from "../interfaces";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const emptyCheck = require("../assets/checkbox.png");
-const fullCheck = require("../assets/done.png");
+const emptyCheck = require("../../assets/images/checkbox.png");
+const fullCheck = require("../../assets/images/done.png");
 
 export const PostForm = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
