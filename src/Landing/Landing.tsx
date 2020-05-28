@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { COLORS } from '../constants'
 import { Navigation } from '../interfaces';
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
-import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+// import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
 
 function useFonts(fontMap) {
   let [fontsLoaded, setFontsLoaded] = useState(false);
@@ -18,8 +19,8 @@ function useFonts(fontMap) {
 export const Landing = ({ navigation }: {navigation: Navigation }) => {
 
   let [fontsLoaded] = useFonts({
-    'PatuaOne': require('../../assets/fonts/PatuaOne-Regular.ttf'),
-    'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf'),
+    'PatuaOne-Regular': require('../../assets/fonts/PatuaOne-Regular.ttf'),
+    'MavenPro-Medium': require('../../assets/fonts/MavenPro-Medium.ttf')
   })
 
   const handlePress = () => {
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 50,
     marginBottom: 5,
     textAlign: 'center',
-    fontFamily: 'PatuaOne',
+    fontFamily: 'PatuaOne-Regular',
     color: '#fff',
   },
   tagline: {
@@ -118,6 +119,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 20,
     borderRadius: 4,
-    fontFamily: 'MavenPro-Medium'
   }
 });

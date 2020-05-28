@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   campsites: [
     {
       city: 'Idaho Springs',
